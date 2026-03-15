@@ -16,7 +16,7 @@ function LoginPage() {
       <section className="login-page">
         <main className="login-content">
           <header className="login-page__header">
-            <h1>Login</h1>
+            <h1>Login !</h1>
           </header>
           <br />
           <LoginInput login={onLogin} />
