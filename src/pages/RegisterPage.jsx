@@ -23,7 +23,7 @@ function RegisterPage() {
       <section className="register-page">
         <main className="register-content">
           <header className="register-page__header">
-            <h1>Register !</h1>
+            <h1>Register</h1>
           </header>
           <br />
           <RegisterInput register={onRegister} />
