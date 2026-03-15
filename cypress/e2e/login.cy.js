@@ -1,6 +1,6 @@
 describe('Login Spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:5173');
+    cy.visit('/');
   });
 
   it('should display login page correctly', () => {
@@ -47,11 +47,71 @@ describe('Login Spec', () => {
   });
 
   it('should display homepage when email or password is correct', () => {
+    cy.intercept('POST', '**/login', {
+      statusCode: 200,
+      body: {
+        status: 'success',
+        message: 'success',
+        data: {
+          token: 'fake-token',
+        },
+      },
+    }).as('login');
+
+    cy.intercept('GET', '**/users/me', {
+      statusCode: 200,
+      body: {
+        status: 'success',
+        message: 'success',
+        data: {
+          user: {
+            id: 'user-1',
+            name: 'Fulan',
+            email: 'fulan@mail.com',
+            avatar: 'https://ui-avatars.com/api/?name=Fulan',
+          },
+        },
+      },
+    }).as('me');
+
+    cy.intercept('GET', '**/threads', {
+      statusCode: 200,
+      body: {
+        status: 'success',
+        message: 'success',
+        data: {
+          threads: [],
+        },
+      },
+    }).as('threads');
+
+    cy.intercept('GET', '**/users', {
+      statusCode: 200,
+      body: {
+        status: 'success',
+        message: 'success',
+        data: {
+          users: [
+            {
+              id: 'user-1',
+              name: 'Fulan',
+              email: 'fulan@mail.com',
+              avatar: 'https://ui-avatars.com/api/?name=Fulan',
+            },
+          ],
+        },
+      },
+    }).as('users');
+
     cy.get('input[placeholder="Email"]').type('fulan@mail.com');
     cy.get('input[placeholder="Password"]').type('beraskencur');
+    cy.contains('button', /^Login$/).click();
 
-    cy.contains('button', 'Login').click();
+    cy.wait('@login');
+    cy.wait('@me');
+    cy.wait('@threads');
+    cy.wait('@users');
 
-    cy.contains('button', 'Sign Out').should('be.visible');
+    cy.contains('button', 'Sign Out', { timeout: 10000 }).should('be.visible');
   });
 });
