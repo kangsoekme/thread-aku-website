@@ -1,0 +1,36 @@
+import React from 'react';
+import useInput from '../hooks/useInput';
+import PropTypes from 'prop-types';
+
+function LoginInput({ login }) {
+  const [email, onEmailChange] = useInput('');
+  const [password, onPasswordChange] = useInput('');
+
+  return (
+    <>
+      <form action="" className="login-input">
+        <input
+          type="text"
+          value={email}
+          onChange={onEmailChange}
+          placeholder="Email"
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={onPasswordChange}
+          placeholder="Password"
+        />
+        <button type="button" onClick={() => login({ email, password })}>
+          Login
+        </button>
+      </form>
+    </>
+  );
+}
+
+LoginInput.propTypes = {
+  login: PropTypes.func.isRequired,
+};
+
+export default LoginInput;
