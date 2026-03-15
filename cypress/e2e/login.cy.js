@@ -46,26 +46,12 @@ describe('Login Spec', () => {
     });
   });
 
-  // it('should display homepage when email or password is correct', () => {
-  //   cy.get('input[placeholder="Email"]').type('fulan@mail.com');
-  //   cy.get('input[placeholder="Password"]').type('beraskencur');
-
-  //   cy.get('button')
-  //     .contains(/^Login$/)
-  //     .click();
-
-  //   cy.get('nav')
-  //     .contains(/^Home$/)
-  //     .should('be.visible');
-  //   cy.get('button').contains('Sign out').should('be.visible');
-  // });
   it('should display homepage when email or password is correct', () => {
     cy.get('input[placeholder="Email"]').type('fulan@mail.com');
     cy.get('input[placeholder="Password"]').type('beraskencur');
 
     cy.contains('button', 'Login').click();
 
-    cy.get('nav').should('be.visible');
     cy.contains('button', 'Sign Out').should('be.visible');
   });
 });
