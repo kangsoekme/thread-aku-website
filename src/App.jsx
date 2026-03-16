@@ -33,7 +33,7 @@ function App() {
     return (
       <>
         <main>
-          <LoadingBar />
+          <LoadingBar className="loading-bar" />
           <Routes>
             <Route path="/*" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
@@ -46,7 +46,7 @@ function App() {
   return (
     <>
       <main>
-        <LoadingBar />
+        <LoadingBar className="loading-bar" />
         <Routes>
           <Route
             path="/"

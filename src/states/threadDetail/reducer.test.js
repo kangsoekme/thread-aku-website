@@ -2,6 +2,12 @@ import { describe, it, expect } from 'vitest';
 
 import threadDetailReducer from './reducer';
 
+/**
+ * should return initial state when given by unknown
+ * should return threadDetail when given by receive threadDetail
+ * should return new comment when given by add comment
+ */
+
 describe('threadDetailReducer func', () => {
   it('should return initial state when given by unknown', () => {
     const initialState = [];
@@ -12,7 +18,7 @@ describe('threadDetailReducer func', () => {
     expect(nextState).toEqual(initialState);
   });
 
-  it('should return threadDetail  when given by receive threadDetail', () => {
+  it('should return threadDetail when given by receive threadDetail', () => {
     const initialState = [];
     const action = {
       type: 'RECEIVE_THREAD_DETAIL',

@@ -310,3 +310,7 @@ a {
   flex-direction: column;
   gap: 1rem;
 }
+
+.loading-bar {
+  z-index: 999;
+}

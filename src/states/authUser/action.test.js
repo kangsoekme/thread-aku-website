@@ -3,6 +3,11 @@ import api from '../../utils/api';
 import { asyncSetAuthUser, setAuthUserActionCreator } from './action';
 import { hideLoading, showLoading } from '@dimasmds/react-redux-loading-bar';
 
+/**
+ * should dispatch action correctly when login success
+ * should should dispatch action and call alert correctly when login failed
+ */
+
 const fakeTokenResponse = {
   token: 'fake-token',
 };
@@ -34,7 +39,7 @@ describe('asyncSetAuthUser thunk test', () => {
     delete api.getOwnProfile;
   });
 
-  it('should dispatch action correctly when data fetching success', async () => {
+  it('should dispatch action correctly when login success', async () => {
     api.login = () => Promise.resolve(fakeTokenResponse);
     api.putAccessToken = vi.fn();
     api.getOwnProfile = () => Promise.resolve(fakeAuthUser);

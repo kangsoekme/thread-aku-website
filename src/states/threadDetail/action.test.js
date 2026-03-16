@@ -7,6 +7,11 @@ import {
 import api from '../../utils/api';
 import { hideLoading, showLoading } from '@dimasmds/react-redux-loading-bar';
 
+/**
+ * should dispatch action success
+ * should dispatch action failed
+ */
+
 const fakeThreadDetail = {
   id: 'thread-1',
   title: 'Thread Pertama',
