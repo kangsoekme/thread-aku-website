@@ -117,7 +117,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 1000;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
   width: 100%;
   nav {
@@ -312,5 +312,9 @@ a {
 }
 
 .loading-bar {
-  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
 }
