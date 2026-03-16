@@ -7,6 +7,13 @@ import matchers from '@testing-library/jest-dom/matchers';
 
 expect.extend(matchers);
 
+/**
+ * should input name correctly
+ * should input email correctly
+ * should input password correctly
+ * should call login when button clicked
+ */
+
 describe('RegisterInput test', () => {
   afterEach(() => {
     cleanup();

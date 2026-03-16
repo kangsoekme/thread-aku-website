@@ -3,6 +3,14 @@ describe('Login Spec', () => {
     cy.visit('/');
   });
 
+  /**
+   * should display login page correctly
+   * should display alert when email empty
+   * should display alert when password empty
+   * should display alert when email or password is wrong
+   * should display homepage when email or password is correct
+   */
+
   it('should display login page correctly', () => {
     cy.get('input[placeholder="Email"]').should('be.visible');
     cy.get('input[placeholder="Password"]').should('be.visible');
